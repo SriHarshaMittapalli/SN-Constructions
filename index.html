@@ -5,30 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SN CONSTRUCTIONS</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* To remove unwanted horizontal scroll on mobile */
+        body, html {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body class="font-sans bg-gray-100">
 
     <!-- Navbar -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
             <a href="#" class="text-2xl font-bold text-gray-800">SN CONSTRUCTIONS</a>
             <nav>
-                <ul class="flex space-x-6">
+                <ul class="hidden md:flex space-x-6">
                     <li><a href="#home" class="text-gray-600 hover:text-red-500">Home</a></li>
                     <li><a href="#about" class="text-gray-600 hover:text-red-500">About Us</a></li>
                     <li><a href="#portfolio" class="text-gray-600 hover:text-red-500">Portfolio</a></li>
                     <li><a href="#services" class="text-gray-600 hover:text-red-500">Services</a></li>
                     <li><a href="#contact" class="text-gray-600 hover:text-red-500">Contact</a></li>
                 </ul>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="nav-toggle" class="text-gray-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </nav>
+        </div>
+        <!-- Mobile nav menu -->
+        <div id="nav-menu" class="hidden bg-white md:hidden">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#home" class="text-gray-600 hover:text-red-500">Home</a></li>
+                <li><a href="#about" class="text-gray-600 hover:text-red-500">About Us</a></li>
+                <li><a href="#portfolio" class="text-gray-600 hover:text-red-500">Portfolio</a></li>
+                <li><a href="#services" class="text-gray-600 hover:text-red-500">Services</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-red-500">Contact</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="bg-cover bg-center h-screen relative" style="background-image: url('banner-image.jpg');">
+    <section id="home" class="bg-cover bg-center h-screen relative" style="background-image: url('banner-image.jpg'); margin-top: 64px;">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="container mx-auto h-full flex flex-col items-center justify-center text-white relative z-10">
-            <h1 class="text-5xl font-bold mb-4">Crafting Excellence in Every Structure</h1>
+        <div class="container mx-auto h-full flex flex-col items-center justify-center text-white relative z-10 px-4">
+            <h1 class="text-5xl font-bold mb-4 text-center">Crafting Excellence in Every Structure</h1>
             <p class="text-lg mb-8 text-center max-w-2xl" style="font-size: 1.2rem">At SN CONSTRUCTIONS, we specialize in custom-built homes, expert remodeling, and commercial construction. Bringing your vision to life with precision and passion.</p>
             
             <!-- Contact Number -->
@@ -36,18 +60,17 @@
                 <span class="material-icons mr-2">call</span> <!-- Add icon if using a library like Material Icons -->
                 +91 9398589479
             </div>
-
         </div>
     </section>
 
-
-    <!-- About Section -->
+    <!-- Add the remaining sections as in your original code -->
+     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto flex flex-col md:flex-row items-center px-6">
             <img src="SN-Constructions.jpg" alt="MGK Construction Co." class="w-full md:w-1/2 h-auto mb-8 md:mb-0">
             <div class="md:ml-10">
                 <h2 class="text-3xl font-bold mb-4 text-gray-800">About Us</h2>
-                <p class="text-gray-700 mb-4" style="font-size: 1.2rem">SN CONSTRUCTIONS is committed to remodelling and serving with quality and value. We'll come to you, listen to your needs and wants, and then come back to you with a logical, feasible plan that works for you. Our first-time customers continually become our long term customers time and time again, choosing us for all their remodelling needs. Call us today, and see what our commitment to quality is all about! We may not be related, but you'll feel like we're family.
+                <p class="text-gray-700 mb-8" style="font-size: 1.2rem">SN CONSTRUCTIONS is committed to remodelling and serving with quality and value. We'll come to you, listen to your needs and wants, and then come back to you with a logical, feasible plan that works for you. Our first-time customers continually become our long term customers time and time again, choosing us for all their remodelling needs. Call us today, and see what our commitment to quality is all about! We may not be related, but you'll feel like we're family.
                 </p>
                 <a href="#mission" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold">Read More</a>
             </div>
@@ -327,6 +350,15 @@
             <p class="text-center text-gray-500 mt-8">&copy; 2024 SN CONSTRUCTIONS All Rights Reserved.</p>
         </div>
     </footer>
+    <!-- JavaScript for toggling the mobile menu -->
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 </html>
